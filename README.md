@@ -2,6 +2,11 @@
 
 Hogwarts APP using API : https://wizard-world-api.herokuapp.com/swagger/index.html <br />
 
+to start go to master branch and pull repository<br />
+then start by using command "**ng serve**"<br />
+also in another terminal use command "**npx json-server --watch user.json**" <br />
+as the authentication use dummy API created locally
+
 at landing page go to header and click login <br />
 login using 
 
