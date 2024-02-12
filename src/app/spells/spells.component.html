@@ -1,0 +1,92 @@
+
+<body>
+  <div class="title_container">
+    <h1>Availible Spells</h1>
+  </div>
+
+
+  <div class="navbar navbar-light bg-dark">
+  <div class="container-fluid">
+    <form class="d-flex">
+      <input class="form-control me-2" type="search" #filter placeholder="Search" aria-label="Search">
+      <button (click)="filterResults(filter.value)" class="btn btn-outline-success" type="button">Search</button>
+    </form>
+  </div>
+</div>
+
+  <!-- <div class="row">
+    @for(item of filteredspells;track item.name){
+    <div class="column">
+        <div class="card">
+          <div class="container">
+            <h2><b>{{item.name}}</b></h2>
+            <h3>{{item.name}}'s incantation</h3>
+            <p>{{item.incantation}}</p>
+            <h3>{{item.name}}'s effect</h3>
+            <p>{{item.effect}}</p>
+            <h3>verbal spell ?</h3>
+              @if(item.canBeVerbal==true){<p>yes {{item.name}} is a verbal spell</p>}
+              @else{<p>No {{item.name}} is not verball</p> }
+            <h3>Type of Spell :</h3>
+            <p>{{item.type}}</p>
+            <h3>Light colour :</h3>
+            <p>{{item.light}}</p>
+            <h4>Creator :</h4>
+            @if(item.creator){
+              <p>{{item.creator}}</p>
+            }@else{
+              <p>Unknown Creator</p>
+            }
+          </div>
+        </div>
+      </div>
+    }
+  </div> -->
+
+  <table class="table table-dark table-striped table-hover">
+    <thead>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">Name</th>
+        <th scope="col">incantation</th>
+        <th scope="col">Effect</th>
+        <th scope="col">type</th>
+        <th scope="col">light</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for(item of paginatedData;let index = $index;track item.id){
+      <tr>
+        <th scope="row">{{index+1}}</th>
+        <td>{{item.name}}</td>
+        <td>{{item.incantation}}</td>
+        <td>{{item.effect}}</td>
+        <td>{{item.type}}</td>
+        <td>{{item.light}}</td>
+      </tr>
+    }
+    </tbody>
+  </table>
+
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center bg-dark" >
+      <li (click)="prevpage" class="page-item">
+        <a class="page-link" href="javascript:void(0)" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+          <span class="sr-only">Previous</span>
+        </a>
+      </li>
+      @for (page of pages;track page){
+        <li (click)="pageClicked(page)"  class="page-item"><a class="page-link" href="javascript:void(0)">{{ page }}</a></li>
+      }
+      <li (click)="nextpage()" class="page-item">
+        <a class="page-link" href="javascript:void(0)" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+          <span class="sr-only">Next</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+
+</body>

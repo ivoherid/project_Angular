@@ -1,0 +1,5 @@
+body{
+  background-image: url('/assets/img/bg_web2.gif');
+  background-repeat: no-repeat, repeat;
+  background-size: cover;
+}

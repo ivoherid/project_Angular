@@ -1,0 +1,40 @@
+
+<body>
+  <div class="title_container">
+    <h1>Houses Of Hogwarts</h1>
+  </div>
+
+
+
+
+
+  <div class="row">
+    @for(house of houses;track house.name){
+      <div class="column">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h2 class="card-title"><b>{{house.name}}</b></h2>
+            <h2 class="card-subtitle mb-2">Founder : {{house.founder}}</h2>
+            <p class="card-text">{{house.element}}</p>
+            <p class="card-text">beware of {{house.ghost}}</p>
+            <p class="card-text">Where to hang out : {{house.commonRoom}}</p>
+            <h4>Who is the heads of {{house.name}} ?</h4>
+                    @for(head of house.heads;track head.firstName){
+                      <p>{{head.firstName}} {{head.lastName}}</p>
+                    }
+                    <h3>What are the traits of {{house.name}} ?</h3>
+                    <ul class="list-group list-group-numbered bg-dark">
+                      @for(trait of house.traits;track trait.name){
+                        <li class="list-group-item bg-dark" style="color: white;">{{trait.name}}</li>
+                      }
+                    </ul>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+
+</body>
+
+
+
